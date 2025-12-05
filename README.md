@@ -28,8 +28,8 @@ $ python colmsg_html.py
 
 Input Directory: C:\download\colmsg
 Output Directory: C:\download\colmsg-html
-
 Please enter your Nick Name (default: %%%): 日向太郎
+
 Start generating HTML...
 
 Generation complete. HTML files saved to: C:\download\colmsg-html
@@ -43,8 +43,11 @@ Use the provided `run_demo.cmd` to automatically input your nickname:
     
 2.  Change `<Your Nickname>` to your desired.
 ```
+chcp 65001
 @echo off
+
 set NICKNAME_INPUT=<Your Nickname>
-echo %NICKNAME_INPUT% | python colmsg_html.py
+
+powershell -Command "python colmsg_html.py \"%NICKNAME_INPUT%\""
 pause
 ```
