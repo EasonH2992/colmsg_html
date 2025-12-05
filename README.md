@@ -1,60 +1,50 @@
-**ENGLISH ===================**
-
-This program creates HTML files for viewing colmsg files.
-
-For example, if you save the colmsg files in below folders:
-
-  **C:\Prog\colmsg\data\日木坂26\白石七瀬**
-  
-  **C:\Prog\colmsg\data\日木坂26\加藤京子**
-
-and you want to create HTML files in below folder
-
-  **C:\Prog\colmsg\html\日木坂26**
-
-Then you will run the program in the command line:  
-
-  **colmsg_html "C:\Prog\colmsg\data\日木坂26" "C:\Prog\colmsg\html\日木坂26"**
-
-Then you will find the HTML files by month in the folders:
-
-**C:\Prog\colmsg\html\日木坂26\日木坂26-白石七瀬\日木坂26-白石七瀬YYYYMM.html**
-
-**C:\Prog\colmsg\html\日木坂26\日木坂26-加藤京子\日木坂26-加藤京子YYYYMM.html**
-
-You may also put your nick name at the end of the command.  Otherwise **としくん** will be used as default.
-
-If you want to run the program in a script, remember to add **chcp 65001** to recognize unicode characters.  (see **run_demo.cmd**)
+# ColMsg HTML Viewer
+Note: This project is a modified version of [ktsh2024/colmsg_html](https://github.com/ktsh2024/colmsg_html).
 
 
-**日本語 ===================**
 
-以下のREADMEはAIによって翻訳されています。もし不明な点がありましたら、お詫び申し上げます。
+##  Improvements
 
-このプログラムは、colmsgファイルを表示するためのHTMLファイルを作成します。
+1.  **System Downloads as Default Path:** 
+    * **Input Directory:** `.\Downloads\colmsg`  (Same as Colmsg output folder)
+    * **Output Directory:** `.\Downloads\colmsg-html` (Generated HTML files are saved here).
 
-例えば、colmsgファイルを以下のフォルダーに保存した場合：
+2.  **App-like UI Optimization:** Optimized the HTML output format to closely resemble the look and feel of the original application, including proper media (audio/video) classification.
+![Generated chat view example](https://raw.githubusercontent.com/A872356/colmsg_html/refs/heads/main/.github/images/example.png)
+---
 
-**C:\Prog\colmsg\data\日木坂26\白石七瀬**
+## 🚀 How to Use
 
-**C:\Prog\colmsg\data\日木坂26\加藤京子**
+You must have Python 3 installed on your system.
 
-そして、HTMLファイルを以下のフォルダーに作成したい場合：
+Run the script and enter your nickname when prompted (optional).
 
-**C:\Prog\colmsg\html\日木坂26**
+```bash
+python colmsg_html.py
+```
+**Example:**
+```bash
+$ python colmsg_html.py
 
-次に、コマンドラインでプログラムを実行します：
+Input Directory: C:\download\colmsg
+Output Directory: C:\download\colmsg-html
 
-**colmsg_html "C:\Prog\colmsg\data\日木坂26" "C:\Prog\colmsg\html\日木坂26"**
+Please enter your Nick Name (default: %%%): 日向太郎
+Start generating HTML...
 
-その後、以下のフォルダーに月ごとのHTMLファイルが作成されます：
+Generation complete. HTML files saved to: C:\download\colmsg-html
+```
 
-**C:\Prog\colmsg\html\日木坂26\日木坂26-白石七瀬\日木坂26-白石七瀬YYYYMM.html**
+### Option: Using the Batch Script
 
-**C:\Prog\colmsg\html\日木坂26\日木坂26-加藤京子\日木坂26-加藤京子YYYYMM.html**
+Use the provided `run_demo.cmd` to automatically input your nickname:
 
-コマンドの最後にニックネームを付けることもできます。そうしない場合は「としくん」がデフォルトで使用されます。
-
-スクリプトでプログラムを実行したい場合は、Unicode文字を認識するために **chcp 65001** を追加することを忘れないでください。（**run_demo.cmd**を参照）
-
-
+1.  Modify `run_demo.cmd`.
+    
+2.  Change `<Your Nickname>` to your desired.
+```
+@echo off
+set NICKNAME_INPUT=<Your Nickname>
+echo %NICKNAME_INPUT% | python colmsg_html.py
+pause
+```
